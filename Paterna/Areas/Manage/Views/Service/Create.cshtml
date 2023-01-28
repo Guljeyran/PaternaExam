@@ -1,0 +1,30 @@
+﻿@model Service
+<div class="container">
+    <div>
+        <h1>Create Service</h1>
+    </div>
+    <form asp-action="create" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Title">Title</label>
+            <input asp-for="Title" class="form-control" placeholder="Title">
+            <span asp-validation-for="Title"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Icon">Icon</label>
+            <input asp-for="Icon" class="form-control" placeholder="Icon">
+            <span asp-validation-for="Icon"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description1">Password</label>
+            <input asp-for="Description1" class="form-control" placeholder="Description">
+            <span asp-validation-for="Description1"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description2">Password</label>
+            <input asp-for="Description2" class="form-control" placeholder="Description">
+            <span asp-validation-for="Description2"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" >Create</button>
+    </form>
+</div>

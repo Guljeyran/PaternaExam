@@ -1,0 +1,47 @@
+﻿@model List<Service>
+@{
+    int counter = 0;
+}
+
+@section CSS{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+}
+<div class="container">
+    <div>
+        <h1>Services</h1>
+        <a class="btn btn-success" asp-action="create" asp-controller="service">Create</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Icon</th>
+                <th scope="col">Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Service service in Model)
+            {
+                counter++;
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@service.Id</td>
+                    <td>
+                        @Html.Raw(service.Icon)
+                    </td>
+                    <td>@service.Title</td>
+                    <td>
+                        <a class="btn btn-primary" asp-action="update" asp-controller="service" asp-route-id="@service.Id" >Update</a>
+                        <a class="btn btn-danger deletebutton" asp-action="delete" asp-controller="service" asp-route-id="@service.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+           
+        </tbody>
+    </table>
+</div>
+@section JSS{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.js" integrity="sha512-vCI1Ba/Ob39YYPiWruLs4uHSA3QzxgHBcJNfFMRMJr832nT/2FBrwmMGQMwlD6Z/rAIIwZFX8vJJWDj7odXMaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}
